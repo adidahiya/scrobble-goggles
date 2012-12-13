@@ -1,18 +1,18 @@
 //
-//  SCRSecondViewController.m
+//  SCRCameraViewController.m
 //  Scrobblematic
 //
 //  Created by Adi Dahiya on 12/13/2012.
 //  Copyright (c) 2012 Adi Dahiya. All rights reserved.
 //
 
-#import "SCRSecondViewController.h"
+#import "SCRCameraViewController.h"
 
-@interface SCRSecondViewController ()
+@interface SCRCameraViewController ()
 
 @end
 
-@implementation SCRSecondViewController
+@implementation SCRCameraViewController
 
 - (void)viewDidLoad
 {

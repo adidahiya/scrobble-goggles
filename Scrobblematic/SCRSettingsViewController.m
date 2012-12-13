@@ -1,18 +1,18 @@
 //
-//  SCRFirstViewController.m
+//  SCRSettingsViewController.m
 //  Scrobblematic
 //
 //  Created by Adi Dahiya on 12/13/2012.
 //  Copyright (c) 2012 Adi Dahiya. All rights reserved.
 //
 
-#import "SCRFirstViewController.h"
+#import "SCRSettingsViewController.h"
 
-@interface SCRFirstViewController ()
+@interface SCRSettingsViewController ()
 
 @end
 
-@implementation SCRFirstViewController
+@implementation SCRSettingsViewController
 
 - (void)viewDidLoad
 {

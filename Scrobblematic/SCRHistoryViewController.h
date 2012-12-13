@@ -1,5 +1,5 @@
 //
-//  SCRSecondViewController.h
+//  SCRHistoryViewController.h
 //  Scrobblematic
 //
 //  Created by Adi Dahiya on 12/13/2012.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCRSecondViewController : UIViewController
+@interface SCRHistoryViewController : UIViewController
 
 @end

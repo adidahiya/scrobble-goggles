@@ -18,12 +18,19 @@
 		406498EE1679DB8D004AA96A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406498ED1679DB8D004AA96A /* Default-568h@2x.png */; };
 		406498F11679DB8D004AA96A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406498EF1679DB8D004AA96A /* MainStoryboard_iPhone.storyboard */; };
 		406498F41679DB8D004AA96A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406498F21679DB8D004AA96A /* MainStoryboard_iPad.storyboard */; };
-		406498F71679DB8D004AA96A /* SCRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406498F61679DB8D004AA96A /* SCRFirstViewController.m */; };
+		406498F71679DB8D004AA96A /* SCRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406498F61679DB8D004AA96A /* SCRSettingsViewController.m */; };
 		406498F91679DB8D004AA96A /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 406498F81679DB8D004AA96A /* first.png */; };
 		406498FB1679DB8D004AA96A /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406498FA1679DB8D004AA96A /* first@2x.png */; };
-		406498FE1679DB8D004AA96A /* SCRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406498FD1679DB8D004AA96A /* SCRSecondViewController.m */; };
+		406498FE1679DB8D004AA96A /* SCRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406498FD1679DB8D004AA96A /* SCRCameraViewController.m */; };
 		406499001679DB8D004AA96A /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 406498FF1679DB8D004AA96A /* second.png */; };
 		406499021679DB8D004AA96A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499011679DB8D004AA96A /* second@2x.png */; };
+		4064990A1679DD07004AA96A /* SCRHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406499091679DD07004AA96A /* SCRHistoryViewController.m */; };
+		4064990C1679E064004AA96A /* 179-notepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4064990B1679E064004AA96A /* 179-notepad.png */; };
+		4064990E1679E082004AA96A /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4064990D1679E082004AA96A /* 86-camera.png */; };
+		406499101679E099004AA96A /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4064990F1679E099004AA96A /* 20-gear2.png */; };
+		406499131679E309004AA96A /* SCRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406499121679E309004AA96A /* SCRTabBarController.m */; };
+		406499161679E5CE004AA96A /* cameraTabBarItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499141679E5CE004AA96A /* cameraTabBarItem.png */; };
+		406499171679E5CE004AA96A /* cameraTabBarItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499151679E5CE004AA96A /* cameraTabBarItem@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,14 +49,23 @@
 		406498ED1679DB8D004AA96A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		406498F01679DB8D004AA96A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		406498F31679DB8D004AA96A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		406498F51679DB8D004AA96A /* SCRFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRFirstViewController.h; sourceTree = "<group>"; };
-		406498F61679DB8D004AA96A /* SCRFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRFirstViewController.m; sourceTree = "<group>"; };
+		406498F51679DB8D004AA96A /* SCRSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRSettingsViewController.h; sourceTree = "<group>"; };
+		406498F61679DB8D004AA96A /* SCRSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRSettingsViewController.m; sourceTree = "<group>"; };
 		406498F81679DB8D004AA96A /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		406498FA1679DB8D004AA96A /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		406498FC1679DB8D004AA96A /* SCRSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRSecondViewController.h; sourceTree = "<group>"; };
-		406498FD1679DB8D004AA96A /* SCRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRSecondViewController.m; sourceTree = "<group>"; };
+		406498FC1679DB8D004AA96A /* SCRCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRCameraViewController.h; sourceTree = "<group>"; };
+		406498FD1679DB8D004AA96A /* SCRCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRCameraViewController.m; sourceTree = "<group>"; };
 		406498FF1679DB8D004AA96A /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		406499011679DB8D004AA96A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		406499081679DD07004AA96A /* SCRHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRHistoryViewController.h; sourceTree = "<group>"; };
+		406499091679DD07004AA96A /* SCRHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRHistoryViewController.m; sourceTree = "<group>"; };
+		4064990B1679E064004AA96A /* 179-notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "179-notepad.png"; sourceTree = "<group>"; };
+		4064990D1679E082004AA96A /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
+		4064990F1679E099004AA96A /* 20-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear2.png"; sourceTree = "<group>"; };
+		406499111679E309004AA96A /* SCRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRTabBarController.h; sourceTree = "<group>"; };
+		406499121679E309004AA96A /* SCRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRTabBarController.m; sourceTree = "<group>"; };
+		406499141679E5CE004AA96A /* cameraTabBarItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraTabBarItem.png; sourceTree = "<group>"; };
+		406499151679E5CE004AA96A /* cameraTabBarItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraTabBarItem@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,16 +114,16 @@
 			children = (
 				406498E61679DB8D004AA96A /* SCRAppDelegate.h */,
 				406498E71679DB8D004AA96A /* SCRAppDelegate.m */,
+				406499111679E309004AA96A /* SCRTabBarController.h */,
+				406499121679E309004AA96A /* SCRTabBarController.m */,
 				406498EF1679DB8D004AA96A /* MainStoryboard_iPhone.storyboard */,
 				406498F21679DB8D004AA96A /* MainStoryboard_iPad.storyboard */,
-				406498F51679DB8D004AA96A /* SCRFirstViewController.h */,
-				406498F61679DB8D004AA96A /* SCRFirstViewController.m */,
-				406498F81679DB8D004AA96A /* first.png */,
-				406498FA1679DB8D004AA96A /* first@2x.png */,
-				406498FC1679DB8D004AA96A /* SCRSecondViewController.h */,
-				406498FD1679DB8D004AA96A /* SCRSecondViewController.m */,
-				406498FF1679DB8D004AA96A /* second.png */,
-				406499011679DB8D004AA96A /* second@2x.png */,
+				406498F51679DB8D004AA96A /* SCRSettingsViewController.h */,
+				406498F61679DB8D004AA96A /* SCRSettingsViewController.m */,
+				406498FD1679DB8D004AA96A /* SCRCameraViewController.m */,
+				406498FC1679DB8D004AA96A /* SCRCameraViewController.h */,
+				406499081679DD07004AA96A /* SCRHistoryViewController.h */,
+				406499091679DD07004AA96A /* SCRHistoryViewController.m */,
 				406498DE1679DB8D004AA96A /* Supporting Files */,
 			);
 			path = Scrobblematic;
@@ -116,6 +132,15 @@
 		406498DE1679DB8D004AA96A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				406498F81679DB8D004AA96A /* first.png */,
+				406498FA1679DB8D004AA96A /* first@2x.png */,
+				406499141679E5CE004AA96A /* cameraTabBarItem.png */,
+				406499151679E5CE004AA96A /* cameraTabBarItem@2x.png */,
+				406498FF1679DB8D004AA96A /* second.png */,
+				406499011679DB8D004AA96A /* second@2x.png */,
+				4064990B1679E064004AA96A /* 179-notepad.png */,
+				4064990D1679E082004AA96A /* 86-camera.png */,
+				4064990F1679E099004AA96A /* 20-gear2.png */,
 				406498DF1679DB8D004AA96A /* Scrobblematic-Info.plist */,
 				406498E01679DB8D004AA96A /* InfoPlist.strings */,
 				406498E31679DB8D004AA96A /* main.m */,
@@ -189,6 +214,11 @@
 				406498FB1679DB8D004AA96A /* first@2x.png in Resources */,
 				406499001679DB8D004AA96A /* second.png in Resources */,
 				406499021679DB8D004AA96A /* second@2x.png in Resources */,
+				4064990C1679E064004AA96A /* 179-notepad.png in Resources */,
+				4064990E1679E082004AA96A /* 86-camera.png in Resources */,
+				406499101679E099004AA96A /* 20-gear2.png in Resources */,
+				406499161679E5CE004AA96A /* cameraTabBarItem.png in Resources */,
+				406499171679E5CE004AA96A /* cameraTabBarItem@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +231,10 @@
 			files = (
 				406498E41679DB8D004AA96A /* main.m in Sources */,
 				406498E81679DB8D004AA96A /* SCRAppDelegate.m in Sources */,
-				406498F71679DB8D004AA96A /* SCRFirstViewController.m in Sources */,
-				406498FE1679DB8D004AA96A /* SCRSecondViewController.m in Sources */,
+				406498F71679DB8D004AA96A /* SCRSettingsViewController.m in Sources */,
+				406498FE1679DB8D004AA96A /* SCRCameraViewController.m in Sources */,
+				4064990A1679DD07004AA96A /* SCRHistoryViewController.m in Sources */,
+				406499131679E309004AA96A /* SCRTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +327,7 @@
 				GCC_PREFIX_HEADER = "Scrobblematic/Scrobblematic-Prefix.pch";
 				INFOPLIST_FILE = "Scrobblematic/Scrobblematic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -306,6 +339,7 @@
 				GCC_PREFIX_HEADER = "Scrobblematic/Scrobblematic-Prefix.pch";
 				INFOPLIST_FILE = "Scrobblematic/Scrobblematic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

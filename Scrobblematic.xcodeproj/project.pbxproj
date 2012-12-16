@@ -21,7 +21,6 @@
 		406498F71679DB8D004AA96A /* SCRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406498F61679DB8D004AA96A /* SCRSettingsViewController.m */; };
 		406498F91679DB8D004AA96A /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 406498F81679DB8D004AA96A /* first.png */; };
 		406498FB1679DB8D004AA96A /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406498FA1679DB8D004AA96A /* first@2x.png */; };
-		406498FE1679DB8D004AA96A /* SCRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406498FD1679DB8D004AA96A /* SCRCameraViewController.m */; };
 		406499001679DB8D004AA96A /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 406498FF1679DB8D004AA96A /* second.png */; };
 		406499021679DB8D004AA96A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499011679DB8D004AA96A /* second@2x.png */; };
 		4064990A1679DD07004AA96A /* SCRHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406499091679DD07004AA96A /* SCRHistoryViewController.m */; };
@@ -32,6 +31,9 @@
 		406499161679E5CE004AA96A /* cameraTabBarItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499141679E5CE004AA96A /* cameraTabBarItem.png */; };
 		406499171679E5CE004AA96A /* cameraTabBarItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499151679E5CE004AA96A /* cameraTabBarItem@2x.png */; };
 		40F53993167D7BC80022D483 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F53992167D7BC80022D483 /* MobileCoreServices.framework */; };
+		40F53997167D84140022D483 /* SCRGoogleGoggles.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F53996167D84140022D483 /* SCRGoogleGoggles.m */; };
+		40F539A2167DC3570022D483 /* SCRCameraViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F539A1167DC3570022D483 /* SCRCameraViewDelegate.m */; };
+		40F539A5167DCB950022D483 /* SCRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F539A4167DCB950022D483 /* SCRCameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +56,6 @@
 		406498F61679DB8D004AA96A /* SCRSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRSettingsViewController.m; sourceTree = "<group>"; };
 		406498F81679DB8D004AA96A /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		406498FA1679DB8D004AA96A /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		406498FC1679DB8D004AA96A /* SCRCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRCameraViewController.h; sourceTree = "<group>"; };
-		406498FD1679DB8D004AA96A /* SCRCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRCameraViewController.m; sourceTree = "<group>"; };
 		406498FF1679DB8D004AA96A /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		406499011679DB8D004AA96A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		406499081679DD07004AA96A /* SCRHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRHistoryViewController.h; sourceTree = "<group>"; };
@@ -68,6 +68,12 @@
 		406499141679E5CE004AA96A /* cameraTabBarItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraTabBarItem.png; sourceTree = "<group>"; };
 		406499151679E5CE004AA96A /* cameraTabBarItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraTabBarItem@2x.png"; sourceTree = "<group>"; };
 		40F53992167D7BC80022D483 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		40F53995167D84140022D483 /* SCRGoogleGoggles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRGoogleGoggles.h; sourceTree = "<group>"; };
+		40F53996167D84140022D483 /* SCRGoogleGoggles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRGoogleGoggles.m; sourceTree = "<group>"; };
+		40F539A0167DC3570022D483 /* SCRCameraViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRCameraViewDelegate.h; sourceTree = "<group>"; };
+		40F539A1167DC3570022D483 /* SCRCameraViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRCameraViewDelegate.m; sourceTree = "<group>"; };
+		40F539A3167DCB950022D483 /* SCRCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRCameraViewController.h; sourceTree = "<group>"; };
+		40F539A4167DCB950022D483 /* SCRCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRCameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +130,14 @@
 				406498F21679DB8D004AA96A /* MainStoryboard_iPad.storyboard */,
 				406498F51679DB8D004AA96A /* SCRSettingsViewController.h */,
 				406498F61679DB8D004AA96A /* SCRSettingsViewController.m */,
-				406498FD1679DB8D004AA96A /* SCRCameraViewController.m */,
-				406498FC1679DB8D004AA96A /* SCRCameraViewController.h */,
 				406499081679DD07004AA96A /* SCRHistoryViewController.h */,
 				406499091679DD07004AA96A /* SCRHistoryViewController.m */,
+				40F53995167D84140022D483 /* SCRGoogleGoggles.h */,
+				40F53996167D84140022D483 /* SCRGoogleGoggles.m */,
+				40F539A3167DCB950022D483 /* SCRCameraViewController.h */,
+				40F539A4167DCB950022D483 /* SCRCameraViewController.m */,
+				40F539A0167DC3570022D483 /* SCRCameraViewDelegate.h */,
+				40F539A1167DC3570022D483 /* SCRCameraViewDelegate.m */,
 				406498DE1679DB8D004AA96A /* Supporting Files */,
 			);
 			path = Scrobblematic;
@@ -236,9 +246,11 @@
 				406498E41679DB8D004AA96A /* main.m in Sources */,
 				406498E81679DB8D004AA96A /* SCRAppDelegate.m in Sources */,
 				406498F71679DB8D004AA96A /* SCRSettingsViewController.m in Sources */,
-				406498FE1679DB8D004AA96A /* SCRCameraViewController.m in Sources */,
 				4064990A1679DD07004AA96A /* SCRHistoryViewController.m in Sources */,
 				406499131679E309004AA96A /* SCRTabBarController.m in Sources */,
+				40F53997167D84140022D483 /* SCRGoogleGoggles.m in Sources */,
+				40F539A2167DC3570022D483 /* SCRCameraViewDelegate.m in Sources */,
+				40F539A5167DCB950022D483 /* SCRCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

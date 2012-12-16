@@ -6,23 +6,34 @@
 //  Copyright (c) 2012 Adi Dahiya. All rights reserved.
 //
 
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+
 #import "SCRTabBarController.h"
+#import "SCRCameraViewDelegate.h"
 
 @interface SCRTabBarController ()
+
+@property (nonatomic, strong) UIImagePickerController *camera;
+@property (nonatomic, strong) SCRCameraViewDelegate *cameraDelegate;
+@property (nonatomic, retain) IBOutlet UIButton *cameraButton;
 
 @end
 
 @implementation SCRTabBarController
 
+@synthesize cameraDelegate;
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    /*
+
+    // NSLog(@"======================= ADDING CENTER BUTTON ======================");
     [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"]
                     highlightImage:[UIImage imageNamed:@"cameraTabBarItemHighlight.png"]];
-    */
+    
+    [self addButtonTapHandler:self.cameraButton];
 }
 
 - (void) didReceiveMemoryWarning
@@ -31,10 +42,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) willAppearIn:(UINavigationController *)navigationController
+- (void) willAppearIn:(UINavigationController *) navigationController
 {
     [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"]
                     highlightImage:[UIImage imageNamed:@"cameraTabBarItemHighlight.png"]];
+}
+
+- (void) addButtonTapHandler:(UIButton *) button
+{
+    // NSLog(@"======================= ADDING TAP HANDLER ======================");
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc]
+                                               initWithTarget:self
+                                               action:@selector(handleSingleFingerTap:)];
+
+    [button addGestureRecognizer:singleFingerTap];
+}
+
+- (void) handleSingleFingerTap:(UITapGestureRecognizer *) recognizer
+{
+    // NSLog(@"=================== INSIDE SINGLE TAP HANDLER ===================");
+    if ([self startCameraController] == YES) {
+        NSLog(@"Camera UI started!");
+    } else {
+        NSLog(@"Camera failed to launch.");
+    }
 }
 
 // Create a view controller and setup it's tab bar item with a title and image
@@ -45,11 +76,11 @@
     return self;
 }
 
-// Create a custom UIButton and add it to the center of our tab bar
+// Create a custom UIButton and add it to the center of this tab bar
 - (void) addCenterButtonWithImage:(UIImage*)buttonImage
                    highlightImage:(UIImage*)highlightImage
 {
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin
                             | UIViewAutoresizingFlexibleLeftMargin
                             | UIViewAutoresizingFlexibleBottomMargin
@@ -57,7 +88,7 @@
     button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
     [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
-    
+
     CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
     if (heightDifference < 0) {
         button.center = self.tabBar.center;
@@ -66,8 +97,42 @@
         center.y = center.y - heightDifference/2.0;
         button.center = center;
     }
-    
+
     [self.view addSubview:button];
+    self.cameraButton = button;
+}
+
+// Capture a photo with the camera
+
+- (BOOL) startCameraController
+{
+    /*
+     if ([UIImagePickerController isSourceTypeAvailable:
+     UIImagePickerControllerSourceTypeCamera] == NO)
+     return NO;
+     */
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypePhotoLibrary] == NO)
+        return NO;
+
+    UIImagePickerController *camera = [[UIImagePickerController alloc] init];
+    
+    // self.camera.sourceType = UIImagePickerControllerSourceTypeCamera;
+    camera.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    // Only allow still images
+    camera.mediaTypes = [NSArray arrayWithObject:(NSString *) kUTTypeImage];
+
+    // Hides the controls for moving & scaling pictures, or for
+    // trimming movies. To instead show the controls, use YES.
+    camera.allowsEditing = NO;
+
+    camera.delegate = self.cameraDelegate;
+
+    [self presentViewController:camera animated:YES completion:NULL];
+    
+    self.camera = camera;
+    return YES;
 }
 
 @end

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCRTabBarController : UITabBarController
+@interface SCRTabBarController : UITabBarController {
+    
+}
 
 // Create a view controller and setup it's tab bar item with a title and image
 -(UIViewController*) viewControllerWithTabTitle:(NSString*)title

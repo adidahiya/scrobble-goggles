@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCRCameraViewController : UIViewController
+@interface SCRCameraViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @end

@@ -31,6 +31,7 @@
 		406499131679E309004AA96A /* SCRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406499121679E309004AA96A /* SCRTabBarController.m */; };
 		406499161679E5CE004AA96A /* cameraTabBarItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499141679E5CE004AA96A /* cameraTabBarItem.png */; };
 		406499171679E5CE004AA96A /* cameraTabBarItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 406499151679E5CE004AA96A /* cameraTabBarItem@2x.png */; };
+		40F53993167D7BC80022D483 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F53992167D7BC80022D483 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		406499121679E309004AA96A /* SCRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRTabBarController.m; sourceTree = "<group>"; };
 		406499141679E5CE004AA96A /* cameraTabBarItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraTabBarItem.png; sourceTree = "<group>"; };
 		406499151679E5CE004AA96A /* cameraTabBarItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraTabBarItem@2x.png"; sourceTree = "<group>"; };
+		40F53992167D7BC80022D483 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F53993167D7BC80022D483 /* MobileCoreServices.framework in Frameworks */,
 				406498D81679DB8D004AA96A /* UIKit.framework in Frameworks */,
 				406498DA1679DB8D004AA96A /* Foundation.framework in Frameworks */,
 				406498DC1679DB8D004AA96A /* CoreGraphics.framework in Frameworks */,
@@ -102,6 +105,7 @@
 		406498D61679DB8D004AA96A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40F53992167D7BC80022D483 /* MobileCoreServices.framework */,
 				406498D71679DB8D004AA96A /* UIKit.framework */,
 				406498D91679DB8D004AA96A /* Foundation.framework */,
 				406498DB1679DB8D004AA96A /* CoreGraphics.framework */,
@@ -323,11 +327,13 @@
 		406499061679DB8D004AA96A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Scrobblematic/Scrobblematic-Prefix.pch";
 				INFOPLIST_FILE = "Scrobblematic/Scrobblematic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -335,11 +341,13 @@
 		406499071679DB8D004AA96A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Scrobblematic/Scrobblematic-Prefix.pch";
 				INFOPLIST_FILE = "Scrobblematic/Scrobblematic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -363,6 +371,7 @@
 				406499071679DB8D004AA96A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

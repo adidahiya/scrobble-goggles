@@ -14,37 +14,40 @@
 
 @implementation SCRTabBarController
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    /*
     [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"]
                     highlightImage:[UIImage imageNamed:@"cameraTabBarItemHighlight.png"]];
+    */
 }
 
-- (void)didReceiveMemoryWarning
+- (void) didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void) willAppearIn:(UINavigationController *)navigationController
+- (void) willAppearIn:(UINavigationController *)navigationController
 {
     [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"]
                     highlightImage:[UIImage imageNamed:@"cameraTabBarItemHighlight.png"]];
 }
 
 // Create a view controller and setup it's tab bar item with a title and image
--(UIViewController*) viewControllerWithTabTitle:(NSString*) title image:(UIImage*)image
+- (UIViewController*) viewControllerWithTabTitle:(NSString*) title
+                                           image:(UIImage*)image
 {
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:image tag:0];
     return self;
 }
 
 // Create a custom UIButton and add it to the center of our tab bar
--(void) addCenterButtonWithImage:(UIImage*)buttonImage
-                  highlightImage:(UIImage*)highlightImage
+- (void) addCenterButtonWithImage:(UIImage*)buttonImage
+                   highlightImage:(UIImage*)highlightImage
 {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin

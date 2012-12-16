@@ -74,7 +74,7 @@
                             <constraint firstItem="23" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="40" type="user" id="yUx-Ee-KEk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="86-camera.png" id="6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,10 +142,14 @@
     <resources>
         <image name="179-notepad.png" width="22" height="28"/>
         <image name="20-gear2.png" width="26" height="28"/>
+        <image name="86-camera.png" width="24" height="18"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SCRCameraViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCRCameraViewController.h"/>
         </class>
         <class className="SCRHistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCRHistoryViewController.h"/>

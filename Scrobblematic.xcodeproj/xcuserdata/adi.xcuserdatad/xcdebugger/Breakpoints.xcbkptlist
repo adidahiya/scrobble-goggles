@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Scrobblematic/SCRAlbumResultsController.m"
-         timestampString = "377431107.144212"
+         timestampString = "377443544.715348"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Scrobblematic/SCRAlbumResultsController.m"
-         timestampString = "377434492.29298"
+         timestampString = "377438264.6344"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Scrobblematic/SCRAlbumResultsController.m"
-         timestampString = "377434808.362901"
+         timestampString = "377438264.6344"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
+         startingLineNumber = "141"
+         endingLineNumber = "141"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Scrobblematic/SCRLastFM.m"
-         timestampString = "377436859.007334"
+         timestampString = "377445746.333735"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "179"
+         endingLineNumber = "179"
          landmarkName = "-scrobbleAlbum:byArtist:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Scrobblematic/SCRLastFM.m"
-         timestampString = "377436859.007334"
+         timestampString = "377445746.333735"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "94"
-         endingLineNumber = "94"
+         startingLineNumber = "146"
+         endingLineNumber = "146"
          landmarkName = "-scrobbleTrack:byArtist:onAlbum:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -137,13 +137,39 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Scrobblematic/SCRLastFM.m"
-         timestampString = "377436731.371581"
+         filePath = "Scrobblematic/SCRAlbumResultsController.m"
+         timestampString = "377444287.778336"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-loginCallback:data:"
+         startingLineNumber = "212"
+         endingLineNumber = "212"
+         landmarkName = "-showResults:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Scrobblematic/SCRAlbumResultsController.m"
+         timestampString = "377443685.101285"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
+         landmarkName = "-queryLastFM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Scrobblematic/SCRLastFM.m"
+         timestampString = "377445724.860173"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "-getAlbumMatches:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

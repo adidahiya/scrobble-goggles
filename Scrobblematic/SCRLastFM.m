@@ -75,12 +75,42 @@
                                 httpMethod:POST_TYPE error:nil];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0
                                                            error:nil];
-    NSArray *matches = [[[json objectForKey:@"results"]
-                         objectForKey:@"albummatches"]
-                        objectForKey:@"album"];
 
-    NSLog(@"Got %d album match(es) for %@", [matches count], album);
-    return matches;
+    int totalResults = [[[json objectForKey:@"results"]
+                        objectForKey:@"opensearch:totalResults"] intValue];
+    NSLog(@"Got %d album match(es) for %@", totalResults, album);
+
+    if (totalResults) {
+        NSArray *matches = [[[json objectForKey:@"results"]
+                             objectForKey:@"albummatches"]
+                            objectForKey:@"album"];
+
+        // Without this, NSDictionary would be interpreted as NSArray
+        if (totalResults == 1) {
+            matches = [NSArray arrayWithObjects:matches, nil];
+        }
+
+        return matches;
+    } else {
+        // Attempt to split on dash within album name (in artist - album format)
+        // If no split possible, return an empty NSArray
+        NSString *pattern = @"([\\w\\s\\!]+)\\-([\\w\\s\\!]+)";
+        NSRegularExpression *regex = [NSRegularExpression
+                                      regularExpressionWithPattern:pattern
+                                      options:NSRegularExpressionSearch error:nil];
+        NSArray *matches = [regex matchesInString:album
+                                          options:NSRegularExpressionSearch
+                                            range:NSMakeRange(0, [album length])];
+        NSArray *ret;
+
+        for (NSTextCheckingResult *match in matches) {
+            NSString *substr = [album substringWithRange:[match rangeAtIndex:1]];
+            ret = [self getAlbumMatches:substr];
+            if ([ret count]) return ret;
+        }
+
+        return [[NSArray alloc] init];
+    }
 }
 
 - (void) scrobbleTrack:(NSString *)track byArtist:(NSString *)artist

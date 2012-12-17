@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Adi Dahiya. All rights reserved.
 //
 
+#import <Foundation/NSRegularExpression.h>
 #import "UtilityFunctions.h"
 #import "SCRLastFM.h"
 #import "SCRAlbumResultsController.h"
@@ -65,9 +66,9 @@
 {
     static NSString *CellIdentifier = @"albumCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+
     NSDictionary *album = [self.albums objectAtIndex:indexPath.row];
-    
+
     UIImageView *image = (UIImageView *) [cell viewWithTag:0];
     UILabel *albumLabel = (UILabel *) [cell viewWithTag:1];
     UILabel *artistLabel = (UILabel *) [cell viewWithTag:2];
@@ -135,12 +136,12 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    
+
     NSDictionary *album = [self.albums objectAtIndex:indexPath.row];
     [self.lastFM scrobbleAlbum:[album objectForKey:@"name"]
                       byArtist:[album objectForKey:@"artist"]];
 
-    self.albums = [[NSArray alloc] init];
+    // self.albums = [[NSArray alloc] init];
     [self.tableView reloadData];
 }
 
@@ -150,13 +151,16 @@
 {
     NSString *username = [UtilityFunctions retrieveFromUserDefaults:@"username"];
     NSString *password = [UtilityFunctions retrieveFromUserDefaults:@"password"];
-    
+
     self.lastFM = [[SCRLastFM alloc] init];
     [self.lastFM initUser:username withPassword:password];
-    
+
+    // Note: Last.fm search API is really stupid, so this might not return good
+    // results
     NSArray *albumMatches = [self.lastFM getAlbumMatches:album];
-    
-    if ([albumMatches count] == 0) {
+    int numMatches = [albumMatches count];
+
+    if (numMatches == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No matches for album!"
                                                         message:@"" delegate:nil
                                               cancelButtonTitle:@"OK"
@@ -173,26 +177,49 @@
 
 - (void) showResults:(NSString *)results
 {
-    // TODO
-    NSLog(@"showResults called with (%@)", results);
+    // NSLog(@"showResults called with results: ********(%@)********", results);
+
+    // SO MUCH REGEX
+    // \\x12 matches trailing ^R
+    // leading hex shorts: ^O (x0f) ^Y (x19) ^U (x15) ^T (x14) ^] (x1d)
+    //                     ^Q (x11) ^S (x13) ^N (x0e) ^Z (x1a) ^[ (\e)
+    // other leading patterns: \t (single space), !,
+    NSString *leadingGroup = @"(?:[\\s\\x0f\\x11\\x12\\x13\\x14\\x15\\x16\\x17\
+                                   \\x18\\x19\\x1a\\x1b\\x1c\\x1d\\x1e\\x1f])";
+    NSString *albumTitleGroup = @"([\\w\\s\\!\\-]+)";
     
-    // Regex this shit
-    NSString *pattern = @"\n[.*](Product)";
+    NSString *pattern = [NSString stringWithFormat: @"(?:\\n)%@%@(?:\\W*)(?:\\x12)",
+                         leadingGroup, albumTitleGroup];
     NSRegularExpression *regex = [NSRegularExpression
                                   regularExpressionWithPattern:pattern
                                   options:NSRegularExpressionSearch
                                   error:nil];
-    
+
     NSArray *matches = [regex matchesInString:results
                                       options:NSRegularExpressionSearch
                                         range:NSMakeRange(0, [results length])];
-    
+
     NSLog(@"*********** %d regex matches *********", [matches count]);
     for (NSTextCheckingResult *match in matches) {
-        NSLog(@"match: %@", [results substringWithRange:[match range]]);
+        // NSString *substr = [results substringWithRange:[match rangeAtIndex:1]];
+        // NSLog(@"match: (%@)", substr);
     }
     
-    [self queryLastFM:@"The Beatles Rubber Soul"];
+    if ([matches count]) {
+        NSString *albumQuery = [results substringWithRange:
+                                [[matches objectAtIndex:0] rangeAtIndex:1]];
+        NSLog(@"album query: (%@)", albumQuery);
+        [self queryLastFM:albumQuery];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Could not recognize album."
+                              message:@"" delegate:nil
+                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+
+    // [self queryLastFM:@"The Beatles Rubber Soul"];
 }
 
 

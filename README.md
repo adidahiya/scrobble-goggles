@@ -19,7 +19,7 @@ Big thanks to Fadi Hassan for [reverse engineering the Google Goggles API](http:
 
 ### License
 
-[idev-reipes](https://github.com/boctor/idev-recipes) - MIT License
-[FMEngine wrapper for Last.fm API](https://github.com/westbaer/FMEngine)
-[inAppSettingsKit](https://github.com/futuretap/InAppSettingsKit) - BSD License
+- [idev-reipes](https://github.com/boctor/idev-recipes) MIT License
+- [FMEngine wrapper for Last.fm API](https://github.com/westbaer/FMEngine)
+- [inAppSettingsKit](https://github.com/futuretap/InAppSettingsKit) BSD License
 

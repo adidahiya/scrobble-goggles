@@ -95,7 +95,10 @@ static NSInteger sortAlpha(NSString *n1, NSString *n2, void *context) {
 	[tempDict setObject:method forKey:@"method"];
 	params = [NSDictionary dictionaryWithDictionary:tempDict];
 	// [tempDict release];
-	
+
+    UIApplication *app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES;
+
 	if(![httpMethod isPOST]) {
 		NSURL *dataURL = [self generateURLFromDictionary:params];
 		request = [NSURLRequest requestWithURL:dataURL];
@@ -109,8 +112,10 @@ static NSInteger sortAlpha(NSString *n1, NSString *n2, void *context) {
 		[request setHTTPMethod:httpMethod];
 		[request setHTTPBody:[[self generatePOSTBodyFromDictionary:params] dataUsingEncoding:NSUTF8StringEncoding]];
 	}
-	
+
 	NSData *returnData = [FMEngineURLConnection sendSynchronousRequest:request returningResponse:nil error:&err];
+
+    app.networkActivityIndicatorVisible = NO;
 	return returnData;
 }
 

@@ -150,19 +150,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Scrobblematic/SCRLastFM.m"
-         timestampString = "377433517.788494"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
-         landmarkName = "-getAlbumMatches:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Scrobblematic/SCRAlbumResultsController.m"
          timestampString = "377431107.144212"
          startingColumnNumber = "9223372036854775807"
@@ -209,6 +196,19 @@
          startingLineNumber = "118"
          endingLineNumber = "118"
          landmarkName = "-scrobbleAlbum:byArtist:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Scrobblematic/SCRLastFM.m"
+         timestampString = "377435525.99277"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
+         landmarkName = "-scrobbleTrack:byArtist:onAlbum:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

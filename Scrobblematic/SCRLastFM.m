@@ -92,6 +92,7 @@
                                     timestamp, @"timestamp",
                                     nil, nil];
     NSLog(@"Scrobbling: %@", scrobbleParams);
+
     NSData *data = [fmEngine dataForMethod:@"track.scrobble"
                             withParameters:scrobbleParams useSignature:YES
                                 httpMethod:POST_TYPE error:nil];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCRAppDelegate.h"
 
 @interface SCRAlbumResultsController : UITableViewController
 

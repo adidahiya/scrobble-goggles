@@ -17,6 +17,8 @@
 
 - (NSArray *) getAlbumMatches:(NSString *)album;
 
+- (NSArray *) getRecentScrobbles;
+
 - (void) scrobbleAlbum:(NSString *)album byArtist:(NSString *)artist;
 
 @end

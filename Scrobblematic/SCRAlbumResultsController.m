@@ -6,14 +6,10 @@
 //  Copyright (c) 2012 Adi Dahiya. All rights reserved.
 //
 
-#import <Foundation/NSRegularExpression.h>
-#import "UtilityFunctions.h"
-#import "SCRLastFM.h"
 #import "SCRAlbumResultsController.h"
 
 @interface SCRAlbumResultsController ()
 
-@property SCRLastFM *lastFM;
 @property NSArray *albums;
 
 @end
@@ -86,45 +82,6 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,10 +93,11 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    SCRAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
     NSDictionary *album = [self.albums objectAtIndex:indexPath.row];
-    [self.lastFM scrobbleAlbum:[album objectForKey:@"name"]
-                      byArtist:[album objectForKey:@"artist"]];
+    [appDelegate.lastFM scrobbleAlbum:[album objectForKey:@"name"]
+                             byArtist:[album objectForKey:@"artist"]];
 
     // self.albums = [[NSArray alloc] init];
     [self.tableView reloadData];
@@ -149,15 +107,11 @@
 
 - (void) queryLastFM:(NSString *)album
 {
-    NSString *username = [UtilityFunctions retrieveFromUserDefaults:@"username"];
-    NSString *password = [UtilityFunctions retrieveFromUserDefaults:@"password"];
-
-    self.lastFM = [[SCRLastFM alloc] init];
-    [self.lastFM initUser:username withPassword:password];
-
+    SCRAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     // Note: Last.fm search API is really stupid, so this might not return good
     // results
-    NSArray *albumMatches = [self.lastFM getAlbumMatches:album];
+    NSArray *albumMatches = [appDelegate.lastFM getAlbumMatches:album];
     int numMatches = [albumMatches count];
 
     if (numMatches == 0) {

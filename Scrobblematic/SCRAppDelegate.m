@@ -13,9 +13,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self initLastFM];
+    
     return YES;
 }
-							
+
+- (void) initLastFM
+{
+    if (self.lastFM == nil) {
+        NSString *username = [UtilityFunctions retrieveFromUserDefaults:@"username"];
+        NSString *password = [UtilityFunctions retrieveFromUserDefaults:@"password"];
+        
+        self.lastFM = [[SCRLastFM alloc] init];
+        [self.lastFM initUser:username withPassword:password];
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

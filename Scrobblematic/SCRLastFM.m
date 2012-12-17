@@ -41,6 +41,7 @@
 
     fmEngine = [[FMEngine alloc] init];
 
+    self.username = username;
 	NSString *authToken = [fmEngine generateAuthTokenFromUsername:username
                                                          password:password];
 	NSDictionary *urlDict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -48,6 +49,13 @@
                              authToken, @"authToken",
                              _LASTFM_API_KEY_, @"api_key",
                              nil, nil];
+
+    /*
+    NSData *data = [fmEngine dataForMethod:@"auth.getMobileSession"
+                            withParameters:urlDict useSignature:YES
+                                httpMethod:POST_TYPE error:nil];
+    [self loginCallback:@"" data:data];
+    */
 
 	[fmEngine performMethod:@"auth.getMobileSession" withTarget:self
              withParameters:urlDict andAction:@selector(loginCallback:data:)
@@ -111,6 +119,22 @@
 
         return [[NSArray alloc] init];
     }
+}
+
+- (NSArray *) getRecentScrobbles
+{
+    NSDictionary *getRecentParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     _LASTFM_API_KEY_, @"api_key",
+                                     @"20", @"limit",
+                                     self.username, @"user",
+                                     nil, nil];
+    NSData *data = [fmEngine dataForMethod:@"user.getRecentTracks"
+                            withParameters:getRecentParams useSignature:YES
+                                httpMethod:POST_TYPE error:nil];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0
+                                                           error:nil];
+    NSArray *recent = [[json objectForKey:@"recenttracks"] objectForKey:@"track"];
+    return recent;
 }
 
 - (void) scrobbleTrack:(NSString *)track byArtist:(NSString *)artist

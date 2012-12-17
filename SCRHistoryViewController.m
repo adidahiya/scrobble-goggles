@@ -42,7 +42,9 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-
+    SCRAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.tracks = [appDelegate.lastFM getRecentScrobbles];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,7 +88,6 @@
     image.image = [UIImage imageWithData:
                    [NSData dataWithContentsOfURL:
                     [NSURL URLWithString:imageURL]]];
-    
     return cell;
 }
 

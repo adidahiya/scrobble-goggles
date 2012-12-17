@@ -50,13 +50,6 @@
                              _LASTFM_API_KEY_, @"api_key",
                              nil, nil];
 
-    /*
-    NSData *data = [fmEngine dataForMethod:@"auth.getMobileSession"
-                            withParameters:urlDict useSignature:YES
-                                httpMethod:POST_TYPE error:nil];
-    [self loginCallback:@"" data:data];
-    */
-
 	[fmEngine performMethod:@"auth.getMobileSession" withTarget:self
              withParameters:urlDict andAction:@selector(loginCallback:data:)
                useSignature:YES httpMethod:POST_TYPE];

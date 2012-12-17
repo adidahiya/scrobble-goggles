@@ -140,7 +140,6 @@ NSMutableData *_resultsData;
     if (connection == _cssidPOST) {
         // Handle validateCSSID response
         if (isOK) {
-            // [self.resultsDelegate showResults:results];
             [self postImage:self.image];
         } else {
             // If not 200 OK, then attempt to validate a new CSSID
@@ -149,7 +148,6 @@ NSMutableData *_resultsData;
             [self validateCSSID:[self getCSSID]];
         }
     } else if (connection == _imagePOST) {
-        // TODO: Handle postImage response
         _resultsData = [[NSMutableData alloc] init];
 
         if (isOK) {
@@ -177,10 +175,6 @@ NSMutableData *_resultsData;
     app.networkActivityIndicatorVisible = NO;
 
     if (connection == _imagePOST) {
-        // NSArray *data = [NSJSONSerialization JSONObjectWithData:_resultsData
-        //                                                 options:0 error:nil];
-        // NSLog(@"Got data array in image POST response: %@", data);
-
         // Present the results view controller from the application's root view
         // controller
         SCRAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -257,7 +251,7 @@ NSMutableData *_resultsData;
     NSMutableURLRequest *request = [self generateGogglesRequest:[self getCSSID]];
 
     // IMPORTANT: compression factor here
-    // Under 140KB images seem to be working
+    // UNDER 140KB IMAGES seem to be working!
     NSData *imageData = [[NSData alloc]
                          initWithData:UIImageJPEGRepresentation(self.image, 1.0)];
     int imageSize = imageData.length;

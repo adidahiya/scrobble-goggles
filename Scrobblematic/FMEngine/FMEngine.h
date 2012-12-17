@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "NSString+FMEngine.h"
 
-#define _LASTFM_API_KEY_ @"d87e8f65bba398e227d10b164a52e119"
-#define _LASTFM_SECRETK_ @"6ffc29a124d989b5e64966446949bbd6"
+#define _LASTFM_API_KEY_ @"your_key"
+#define _LASTFM_SECRETK_ @"your_secret"
 #define _LASTFM_BASEURL_ @"http://ws.audioscrobbler.com/2.0/"
 
 // Comment the next line to use XML

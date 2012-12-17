@@ -106,17 +106,13 @@
 
 - (BOOL) startCameraController
 {
-    /*
-     if ([UIImagePickerController isSourceTypeAvailable:
-     UIImagePickerControllerSourceTypeCamera] == NO)
-     return NO;
-     */
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypePhotoLibrary] == NO)
         return NO;
 
     UIImagePickerController *camera = [[UIImagePickerController alloc] init];
     
+    // Swap this out for camera functionality
     // self.camera.sourceType = UIImagePickerControllerSourceTypeCamera;
     camera.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 

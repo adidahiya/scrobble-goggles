@@ -139,6 +139,9 @@
     NSDictionary *album = [self.albums objectAtIndex:indexPath.row];
     [self.lastFM scrobbleAlbum:[album objectForKey:@"name"]
                       byArtist:[album objectForKey:@"artist"]];
+
+    self.albums = [[NSArray alloc] init];
+    [self.tableView reloadData];
 }
 
 // Interact with Last.fm API ===================================================

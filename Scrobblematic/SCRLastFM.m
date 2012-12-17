@@ -5,12 +5,14 @@
 //  Created by Adi Dahiya on 12/17/2012.
 //  Copyright (c) 2012 Adi Dahiya. All rights reserved.
 //
+//  Uses FMEngine: https://github.com/westbaer/FMEngine
+//
 
 #import "SCRLastFM.h"
 
 @interface SCRLastFM ()
 
-@property NSString *authToken;
+@property NSString *sessionKey;
 @property NSString *username;
 
 @end
@@ -39,12 +41,11 @@
 
     fmEngine = [[FMEngine alloc] init];
 
-    self.username = username;
-	self.authToken = [fmEngine generateAuthTokenFromUsername:username
-                                                    password:password];
+	NSString *authToken = [fmEngine generateAuthTokenFromUsername:username
+                                                         password:password];
 	NSDictionary *urlDict = [NSDictionary dictionaryWithObjectsAndKeys:
                              username, @"username",
-                             self.authToken, @"authToken",
+                             authToken, @"authToken",
                              _LASTFM_API_KEY_, @"api_key",
                              nil, nil];
 
@@ -55,8 +56,11 @@
 
 - (void) loginCallback:(NSString *)identifier data:(id)data {
 	// data is either NSData or NSError
-	// NSLog(@"Got Data (%@): %@", identifier, data);
-    NSLog(@"Last.fm auth token: %@", self.authToken);
+	NSLog(@"Got Data (%@): %@", identifier, data);
+    // NSLog(@"Last.fm auth token: %@", data);
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0
+                                                           error:nil];
+    self.sessionKey = [[json objectForKey:@"session"] objectForKey:@"key"];
 }
 
 - (NSArray *) getAlbumMatches:(NSString *)album
@@ -82,7 +86,10 @@
 - (void) scrobbleTrack:(NSString *)track byArtist:(NSString *)artist
                onAlbum:(NSString *)album
 {
-    long timestamp = (long) [[NSDate date] timeIntervalSince1970];
+    assert(self.sessionKey != nil);
+
+    long time = (long) [[NSDate date] timeIntervalSince1970];
+    NSString *timestamp = [NSString stringWithFormat:@"%ld", time];
 
     NSDictionary *scrobbleParams = [NSDictionary dictionaryWithObjectsAndKeys:
                                     _LASTFM_API_KEY_, @"api_key",
@@ -90,6 +97,7 @@
                                     track, @"track",
                                     album, @"album",
                                     timestamp, @"timestamp",
+                                    self.sessionKey, @"sk",
                                     nil, nil];
     NSLog(@"Scrobbling: %@", scrobbleParams);
 

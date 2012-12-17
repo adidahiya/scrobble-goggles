@@ -131,6 +131,9 @@ NSMutableData *_resultsData;
 - (void) connection:(NSURLConnection *)connection
  didReceiveResponse:(NSURLResponse *)response
 {
+    UIApplication *app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = NO;
+
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
     bool isOK = [httpResponse statusCode] == 200;
 
@@ -160,6 +163,9 @@ NSMutableData *_resultsData;
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    UIApplication *app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES;
+
     if (connection == _imagePOST && _resultsData != nil && data != nil) {
         [_resultsData appendData:data];
     }
@@ -167,6 +173,9 @@ NSMutableData *_resultsData;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    UIApplication *app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = NO;
+
     if (connection == _imagePOST) {
         // NSArray *data = [NSJSONSerialization JSONObjectWithData:_resultsData
         //                                                 options:0 error:nil];
@@ -270,7 +279,10 @@ NSMutableData *_resultsData;
 
     [request setHTTPBody:byteArray];
 
-    NSLog(@"******************** init imagePOST request ********************");
+    UIApplication *app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES;
+
+    // NSLog(@"******************** init imagePOST request ********************");
     _imagePOST = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 

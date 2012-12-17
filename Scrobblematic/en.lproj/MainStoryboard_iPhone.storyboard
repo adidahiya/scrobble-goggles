@@ -46,38 +46,33 @@
         <scene sceneID="dp6-ke-b4J">
             <objects>
                 <tableViewController title="Album" id="g0b-94-jNc" customClass="SCRAlbumResultsController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wP9-Qg-a1D">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="wP9-Qg-a1D">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="100" id="02F-CL-pTV">
-                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                            <tableViewCell contentMode="left" selectionStyle="blue" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="77" id="02F-CL-pTV">
+                                <rect key="frame" x="0.0" y="22" width="320" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtT-pC-htC">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="70" type="user" id="cIi-qW-d4C"/>
-                                                <constraint firstAttribute="height" constant="70" type="user" id="uaq-9a-BnS"/>
-                                            </constraints>
-                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="LtT-pC-htC"/>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="ALBUM TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIJ-HK-gNf">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="35" type="user" id="W0R-2d-lbb"/>
+                                                <constraint firstAttribute="height" constant="30" type="user" id="ebV-Rh-krP"/>
                                                 <constraint firstAttribute="width" constant="210" type="user" id="omo-20-u3A"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Artist Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="210" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-ny-gF1">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="35" type="user" id="0ap-EY-Knk"/>
+                                                <constraint firstAttribute="height" constant="30" type="user" id="cDS-32-jJj"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -85,13 +80,15 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="EIJ-HK-gNf" secondAttribute="trailing" constant="12" type="user" id="1dx-1G-EWG"/>
-                                    <constraint firstItem="UwU-ny-gF1" firstAttribute="bottom" secondItem="LtT-pC-htC" secondAttribute="bottom" type="user" id="7B0-Iq-h0a"/>
+                                    <constraint firstItem="LtT-pC-htC" firstAttribute="leading" secondItem="02F-CL-pTV" secondAttribute="leading" type="default" id="3V4-da-cju"/>
+                                    <constraint firstItem="EIJ-HK-gNf" firstAttribute="top" secondItem="02F-CL-pTV" secondAttribute="top" constant="8" type="user" id="4zQ-i4-HJR"/>
                                     <constraint firstItem="UwU-ny-gF1" firstAttribute="width" secondItem="EIJ-HK-gNf" secondAttribute="width" type="user" id="7jr-08-q3q"/>
-                                    <constraint firstItem="LtT-pC-htC" firstAttribute="top" secondItem="02F-CL-pTV" secondAttribute="top" constant="12" type="user" id="PCU-7g-fGa"/>
-                                    <constraint firstItem="LtT-pC-htC" firstAttribute="leading" secondItem="02F-CL-pTV" secondAttribute="leading" constant="12" type="user" id="kH2-IF-Gms"/>
-                                    <constraint firstItem="EIJ-HK-gNf" firstAttribute="top" secondItem="LtT-pC-htC" secondAttribute="top" type="user" id="lVZ-Iy-POe"/>
-                                    <constraint firstAttribute="trailing" secondItem="UwU-ny-gF1" secondAttribute="trailing" constant="12" type="user" id="vwC-ic-8yW"/>
+                                    <constraint firstItem="UwU-ny-gF1" firstAttribute="top" secondItem="EIJ-HK-gNf" secondAttribute="bottom" type="user" id="DkR-aB-m55"/>
+                                    <constraint firstItem="EIJ-HK-gNf" firstAttribute="leading" secondItem="LtT-pC-htC" secondAttribute="trailing" constant="20" type="user" id="HYG-ma-xJf"/>
+                                    <constraint firstItem="LtT-pC-htC" firstAttribute="centerY" secondItem="02F-CL-pTV" secondAttribute="centerY" type="default" id="QRX-QH-tea"/>
+                                    <constraint firstItem="LtT-pC-htC" firstAttribute="top" secondItem="02F-CL-pTV" secondAttribute="top" type="default" id="S6q-4C-Eni"/>
+                                    <constraint firstItem="UwU-ny-gF1" firstAttribute="leading" secondItem="LtT-pC-htC" secondAttribute="trailing" constant="20" type="user" id="siZ-Uh-R3o"/>
+                                    <constraint firstAttribute="trailing" secondItem="EIJ-HK-gNf" secondAttribute="trailing" constant="20" type="default" id="tVd-uY-ooH"/>
                                 </constraints>
                             </tableViewCell>
                         </prototypes>

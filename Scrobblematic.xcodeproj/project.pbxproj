@@ -56,7 +56,6 @@
 		40F53993167D7BC80022D483 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F53992167D7BC80022D483 /* MobileCoreServices.framework */; };
 		40F53997167D84140022D483 /* SCRGoogleGoggles.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F53996167D84140022D483 /* SCRGoogleGoggles.m */; };
 		40F539A2167DC3570022D483 /* SCRCameraViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F539A1167DC3570022D483 /* SCRCameraViewDelegate.m */; };
-		40F539A5167DCB950022D483 /* SCRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F539A4167DCB950022D483 /* SCRCameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,8 +138,6 @@
 		40F53996167D84140022D483 /* SCRGoogleGoggles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRGoogleGoggles.m; sourceTree = "<group>"; };
 		40F539A0167DC3570022D483 /* SCRCameraViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRCameraViewDelegate.h; sourceTree = "<group>"; };
 		40F539A1167DC3570022D483 /* SCRCameraViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRCameraViewDelegate.m; sourceTree = "<group>"; };
-		40F539A3167DCB950022D483 /* SCRCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRCameraViewController.h; sourceTree = "<group>"; };
-		40F539A4167DCB950022D483 /* SCRCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRCameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,8 +203,6 @@
 				406499091679DD07004AA96A /* SCRHistoryViewController.m */,
 				40F53995167D84140022D483 /* SCRGoogleGoggles.h */,
 				40F53996167D84140022D483 /* SCRGoogleGoggles.m */,
-				40F539A3167DCB950022D483 /* SCRCameraViewController.h */,
-				40F539A4167DCB950022D483 /* SCRCameraViewController.m */,
 				4083C486167EEF5500708161 /* SCRLastFM.h */,
 				4083C487167EEF5500708161 /* SCRLastFM.m */,
 				40AB6F80167F1B4C00438BF6 /* SCRAlbumResultsController.h */,
@@ -403,7 +398,6 @@
 				406499131679E309004AA96A /* SCRTabBarController.m in Sources */,
 				40F53997167D84140022D483 /* SCRGoogleGoggles.m in Sources */,
 				40F539A2167DC3570022D483 /* SCRCameraViewDelegate.m in Sources */,
-				40F539A5167DCB950022D483 /* SCRCameraViewController.m in Sources */,
 				4083C488167EEF5500708161 /* SCRLastFM.m in Sources */,
 				4083C4BD167EFE1300708161 /* IASKAppSettingsViewController.m in Sources */,
 				4083C4BE167EFE1300708161 /* IASKAppSettingsWebViewController.m in Sources */,

@@ -76,7 +76,7 @@
     NSString *imageURL = [[[album objectForKey:@"image"] objectAtIndex:1]
                           objectForKey:@"#text"];
 
-    albumLabel.text = [album objectForKey:@"name"];
+    albumLabel.text = [[album objectForKey:@"name"] capitalizedString];
     artistLabel.text = [album objectForKey:@"artist"];
     image.image = [UIImage imageWithData:
                    [NSData dataWithContentsOfURL:
@@ -135,6 +135,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    NSDictionary *album = [self.albums objectAtIndex:indexPath.row];
+    [self.lastFM scrobbleAlbum:[album objectForKey:@"name"]
+                      byArtist:[album objectForKey:@"artist"]];
 }
 
 // Interact with Last.fm API ===================================================

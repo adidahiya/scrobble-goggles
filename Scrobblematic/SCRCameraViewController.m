@@ -85,7 +85,7 @@
     for (NSTextCheckingResult *match in matches) {
         NSLog(@"match: %@", [results substringWithRange:[match range]]);
     }
-    
+
     [self queryLastFM:@"The Beatles Rubber Soul"];
 }
 

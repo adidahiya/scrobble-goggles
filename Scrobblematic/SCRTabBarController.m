@@ -129,7 +129,7 @@
 
     // Tell the camera delegate (UIImagePickerControllerDelegate) about the
     // results view controller (child controller of this tab bar)
-    SCRCameraViewController *controller = (SCRCameraViewController *) [self.viewControllers objectAtIndex:1];
+    SCRAlbumResultsController *controller = (SCRAlbumResultsController *) [self.viewControllers objectAtIndex:1];
     [self.cameraDelegate initWithResultsViewController:controller];
     camera.delegate = self.cameraDelegate;
 

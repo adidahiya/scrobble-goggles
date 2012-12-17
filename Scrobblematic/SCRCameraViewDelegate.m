@@ -6,41 +6,26 @@
 //  Copyright (c) 2012 Adi Dahiya. All rights reserved.
 //
 
-#import <MobileCoreServices/MobileCoreServices.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 
-#import "SCRCameraViewDelegate.h"
 #import "SCRGoogleGoggles.h"
+#import "SCRCameraViewController.h"
+#import "SCRCameraViewDelegate.h"
 
 @interface SCRCameraViewDelegate ()
 
 @property SCRGoogleGoggles *goggles;
+@property SCRCameraViewController *resultsController;
 
 @end
 
 @implementation SCRCameraViewDelegate
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void) initWithResultsViewController:(SCRCameraViewController *)controller
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    self.resultsController = controller;
+    self.goggles = [[SCRGoogleGoggles alloc] init];
 }
-
-- (void) viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void) didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 // UINavigationControllerDelegate methods ======================================
 
@@ -48,14 +33,14 @@
         didShowViewController:(UIViewController *)viewController
                      animated:(BOOL)animated
 {
-
+    // NSLog(@"didShowViewController");
 }
 
 - (void) navigationController:(UINavigationController *)navigationController
        willShowViewController:(UIViewController *)viewController
                      animated:(BOOL)animated
 {
-
+    // NSLog(@"willShowViewController");
 }
 
 @end
@@ -67,6 +52,7 @@
 // For responding to the user tapping Cancel.
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    // NSLog(@"*********** imagePickerControllerDidCancel **********");
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -74,17 +60,21 @@
 - (void) imagePickerController:(UIImagePickerController *)picker
  didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    // NSLog(@"*********** didFinishPickingMediaWithInfo **********");
+
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    UIImage *image;
     
     // Handle a still image capture
     if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
         == kCFCompareEqualTo) {
         
+        image = [info objectForKey:UIImagePickerControllerOriginalImage];
         // Save the new image to the Camera Roll
-        UIImageWriteToSavedPhotosAlbum ([info objectForKey:
-                                         UIImagePickerControllerOriginalImage],
-                                        nil, nil , nil);
-        // TODO: goggles stuff
+        // UIImageWriteToSavedPhotosAlbum (image, nil, nil , nil);
+
+        [self.goggles queryWithImage:image
+                   toResultsDelegate:self.resultsController];
     }
     
     [picker dismissViewControllerAnimated:YES completion:NULL];

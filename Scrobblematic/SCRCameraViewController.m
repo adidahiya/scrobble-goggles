@@ -35,4 +35,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Handle Google Goggles results & update UI ===================================
+
+- (void) showResults:(NSString *)results
+{
+    // TODO
+    // NSLog(@"showResults called with %@", results);
+    
+    // Regex this shit
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:@":\s*"
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:nil];
+    
+    int matches = [regex numberOfMatchesInString:results
+                                         options:NSRegularExpressionCaseInsensitive
+                                           range:NSMakeRange(0, [results length])];
+    
+    NSLog(@"%d results matches with regex", matches);
+}
+
+
 @end

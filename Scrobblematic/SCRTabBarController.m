@@ -9,8 +9,8 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 
-#import "SCRTabBarController.h"
 #import "SCRCameraViewDelegate.h"
+#import "SCRTabBarController.h"
 
 @interface SCRTabBarController ()
 
@@ -22,8 +22,6 @@
 
 @implementation SCRTabBarController
 
-@synthesize cameraDelegate;
-
 - (void) viewDidLoad
 {
     [super viewDidLoad];
@@ -32,8 +30,10 @@
     // NSLog(@"======================= ADDING CENTER BUTTON ======================");
     [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"]
                     highlightImage:[UIImage imageNamed:@"cameraTabBarItemHighlight.png"]];
-    
+
     [self addButtonTapHandler:self.cameraButton];
+
+    self.cameraDelegate = [[SCRCameraViewDelegate alloc] init];
 }
 
 - (void) didReceiveMemoryWarning
@@ -42,7 +42,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) willAppearIn:(UINavigationController *) navigationController
+- (void) willAppearIn:(UINavigationController *)navigationController
 {
     [self addCenterButtonWithImage:[UIImage imageNamed:@"cameraTabBarItem.png"]
                     highlightImage:[UIImage imageNamed:@"cameraTabBarItemHighlight.png"]];
@@ -58,7 +58,7 @@
     [button addGestureRecognizer:singleFingerTap];
 }
 
-- (void) handleSingleFingerTap:(UITapGestureRecognizer *) recognizer
+- (void) handleSingleFingerTap:(UITapGestureRecognizer *)recognizer
 {
     // NSLog(@"=================== INSIDE SINGLE TAP HANDLER ===================");
     if ([self startCameraController] == YES) {
@@ -127,6 +127,10 @@
     // trimming movies. To instead show the controls, use YES.
     camera.allowsEditing = NO;
 
+    // Tell the camera delegate (UIImagePickerControllerDelegate) about the
+    // results view controller (child controller of this tab bar)
+    SCRCameraViewController *controller = (SCRCameraViewController *) [self.viewControllers objectAtIndex:1];
+    [self.cameraDelegate initWithResultsViewController:controller];
     camera.delegate = self.cameraDelegate;
 
     [self presentViewController:camera animated:YES completion:NULL];

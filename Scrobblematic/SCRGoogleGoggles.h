@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SCRCameraViewController.h"
+
 @interface SCRGoogleGoggles : NSObject
 
-- (long int) getCSSID;
+- (NSString *) getCSSID;
 
-- (void) validateCSSID:(NSString *) cssid;
+- (void) validateCSSID:(NSString *)cssid;
+
+- (void) queryWithImage:(UIImage *)photo
+      toResultsDelegate:(SCRCameraViewController *)delegate;
 
 @end

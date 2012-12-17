@@ -10,4 +10,6 @@
 
 @interface SCRCameraViewController : UIViewController
 
+- (void) showResults:(NSString *)results;
+
 @end

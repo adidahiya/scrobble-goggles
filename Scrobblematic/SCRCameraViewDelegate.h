@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCRCameraViewDelegate : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+#import "SCRCameraViewController.h"
+
+@interface SCRCameraViewDelegate : NSObject <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
+- (void) initWithResultsViewController:(SCRCameraViewController *)controller;
 
 @end

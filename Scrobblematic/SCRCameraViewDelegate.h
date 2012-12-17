@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SCRGoogleGoggles.h"
+#import "SCRAlbumResultsController.h"
 #import "SCRCameraViewController.h"
 
 @interface SCRCameraViewDelegate : NSObject <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-- (void) initWithResultsViewController:(SCRCameraViewController *)controller;
+- (void) initWithResultsViewController:(SCRAlbumResultsController *)controller;
 
 @end

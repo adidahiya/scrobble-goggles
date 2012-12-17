@@ -11,15 +11,13 @@
 #include <stdlib.h>
 #include <UIKit/UIImage.h>
 
-#import "SCRCameraViewController.h"
-#import "SCRAppDelegate.h"
 #import "SCRGoogleGoggles.h"
 
 @interface SCRGoogleGoggles ()
 
 @property NSString *CSSID;   // String of 16 random hexadecimal values
 @property UIImage *image;   // Image to query Goggles API with
-@property SCRCameraViewController *resultsViewController;
+@property SCRAlbumResultsController *resultsViewController;
 
 @end
 
@@ -53,7 +51,7 @@ NSMutableData *_resultsData;
 
 // External API method to initialize Google Goggles API interaction
 - (void) queryWithImage:(UIImage *)photo
-      toResultsDelegate:(SCRCameraViewController *)delegate
+      toResultsDelegate:(SCRAlbumResultsController *)delegate
 {
     self.image = photo;
     self.resultsViewController = delegate;
@@ -170,8 +168,8 @@ NSMutableData *_resultsData;
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
     if (connection == _imagePOST) {
-        NSArray *data = [NSJSONSerialization JSONObjectWithData:_resultsData
-                                                        options:0 error:nil];
+        // NSArray *data = [NSJSONSerialization JSONObjectWithData:_resultsData
+        //                                                 options:0 error:nil];
         // NSLog(@"Got data array in image POST response: %@", data);
 
         // Present the results view controller from the application's root view
@@ -185,12 +183,12 @@ NSMutableData *_resultsData;
 
         NSString *dataString = [NSString stringWithFormat:@"%s", dataStringBuffer];
 
-        NSLog(@"Got data of length %i: %@", resultsLength, dataString);
+        // NSLog(@"Got data of length %i: %@", resultsLength, dataString);
 
         // Switch to results view tab
         tabBarController.selectedIndex = 1;
-        SCRCameraViewController *resultsView = [tabBarController.viewControllers
-                                                objectAtIndex:1];
+        SCRAlbumResultsController *resultsView = [tabBarController.viewControllers
+                                                  objectAtIndex:1];
         [resultsView showResults:dataString];
     }
 
@@ -225,7 +223,7 @@ NSMutableData *_resultsData;
  *      11010001 11011010 00000001
  *      0xD1DA01
  *
- * 5. Conver the result into a byte array and prepend it with 0x0A
+ * 5. Convert the result into a byte array and prepend it with 0x0A
  */
 - (NSData *) encodeVarint:(int)value
 {
@@ -244,8 +242,6 @@ NSMutableData *_resultsData;
 
 /*
  * Set up the image data and query the Google Goggles API.
- *
- * http://stackoverflow.com/questions/6385324/size-of-uiimgae-in-bytes-in-ios-4-0
  */
 - (void) postImage:(UIImage *)image
 {
@@ -254,7 +250,7 @@ NSMutableData *_resultsData;
     // IMPORTANT: compression factor here
     // Under 140KB images seem to be working
     NSData *imageData = [[NSData alloc]
-                         initWithData:UIImageJPEGRepresentation(self.image, 0.5)];
+                         initWithData:UIImageJPEGRepresentation(self.image, 1.0)];
     int imageSize = imageData.length;
     NSLog(@"imageSize: (%i)", imageData.length);
 

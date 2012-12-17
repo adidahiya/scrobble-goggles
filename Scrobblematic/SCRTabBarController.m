@@ -69,7 +69,7 @@
 }
 
 // Create a view controller and setup it's tab bar item with a title and image
-- (UIViewController*) viewControllerWithTabTitle:(NSString*) title
+- (UIViewController*) viewControllerWithTabTitle:(NSString*)title
                                            image:(UIImage*)image
 {
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:image tag:0];

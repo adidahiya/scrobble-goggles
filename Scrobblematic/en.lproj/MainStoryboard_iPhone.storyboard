@@ -12,13 +12,13 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="20">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Album History" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="20">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the first view controller — an instance of SCRFirstViewController — specified in the app delegate." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="21">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Here you'll see a list of your recently scrobbled albums." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="21">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="Ikv-jk-tyi"/>
                                 </constraints>
@@ -42,43 +42,69 @@
             </objects>
             <point key="canvasLocation" x="663" y="-214"/>
         </scene>
-        <!--Camera View Controller - Camera-->
-        <scene sceneID="13">
+        <!--Album Results Controller - Album-->
+        <scene sceneID="dp6-ke-b4J">
             <objects>
-                <viewController title="Camera" id="3" customClass="SCRCameraViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17">
+                <tableViewController title="Album" id="g0b-94-jNc" customClass="SCRAlbumResultsController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wP9-Qg-a1D">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="22">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the second view controller — an instance of SCRSecondViewController — specified in the app delegate." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="23">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="100" id="02F-CL-pTV">
+                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtT-pC-htC">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" type="user" id="cIi-qW-d4C"/>
+                                                <constraint firstAttribute="height" constant="70" type="user" id="uaq-9a-BnS"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="ALBUM TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIJ-HK-gNf">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" type="user" id="W0R-2d-lbb"/>
+                                                <constraint firstAttribute="width" constant="210" type="user" id="omo-20-u3A"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Artist Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="210" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-ny-gF1">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" type="user" id="0ap-EY-Knk"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="cQR-IW-sY8"/>
+                                    <constraint firstAttribute="trailing" secondItem="EIJ-HK-gNf" secondAttribute="trailing" constant="12" type="user" id="1dx-1G-EWG"/>
+                                    <constraint firstItem="UwU-ny-gF1" firstAttribute="bottom" secondItem="LtT-pC-htC" secondAttribute="bottom" type="user" id="7B0-Iq-h0a"/>
+                                    <constraint firstItem="UwU-ny-gF1" firstAttribute="width" secondItem="EIJ-HK-gNf" secondAttribute="width" type="user" id="7jr-08-q3q"/>
+                                    <constraint firstItem="LtT-pC-htC" firstAttribute="top" secondItem="02F-CL-pTV" secondAttribute="top" constant="12" type="user" id="PCU-7g-fGa"/>
+                                    <constraint firstItem="LtT-pC-htC" firstAttribute="leading" secondItem="02F-CL-pTV" secondAttribute="leading" constant="12" type="user" id="kH2-IF-Gms"/>
+                                    <constraint firstItem="EIJ-HK-gNf" firstAttribute="top" secondItem="LtT-pC-htC" secondAttribute="top" type="user" id="lVZ-Iy-POe"/>
+                                    <constraint firstAttribute="trailing" secondItem="UwU-ny-gF1" secondAttribute="trailing" constant="12" type="user" id="vwC-ic-8yW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="22" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0q6-IA-e8m"/>
-                            <constraint firstAttribute="trailing" secondItem="23" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fR4-wH-Ih7"/>
-                            <constraint firstItem="23" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fzb-YA-SeR"/>
-                            <constraint firstAttribute="centerY" secondItem="23" secondAttribute="centerY" type="user" id="llH-eD-iPS"/>
-                            <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pc3-9Y-W42"/>
-                            <constraint firstItem="23" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="40" type="user" id="yUx-Ee-KEk"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Camera" image="86-camera.png" id="6"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="g0b-94-jNc" id="PBZ-q1-cq7"/>
+                            <outlet property="delegate" destination="g0b-94-jNc" id="gL1-dB-Vwn"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Albums" image="86-camera.png" id="Zig-la-44P"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Zh-t3-Mbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="180"/>
+            <point key="canvasLocation" x="1083" y="180"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -92,51 +118,43 @@
                     </tabBar>
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
-                        <segue destination="r6V-b0-byh" kind="relationship" relationship="viewControllers" id="Kql-MN-Rcs"/>
+                        <segue destination="g0b-94-jNc" kind="relationship" relationship="viewControllers" id="ma7-pd-ncE"/>
+                        <segue destination="n9F-2r-Srp" kind="relationship" relationship="viewControllers" id="07d-cj-4Ni"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <!--Settings View Controller - Settings-->
-        <scene sceneID="Hf9-XP-vaX">
+        <!--App Settings View Controller - Settings-->
+        <scene sceneID="6yM-lg-1pi">
             <objects>
-                <viewController title="Settings" id="r6V-b0-byh" customClass="SCRSettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4MR-EH-PME">
+                <tableViewController id="n9F-2r-Srp" customClass="IASKAppSettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iNr-R3-0vz">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Third View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="17R-4S-x3o">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the second view controller — an instance of SCRSecondViewController — specified in the app delegate." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="75y-1S-Y1L">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="8fP-yc-MOt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="17R-4S-x3o" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2s8-9Q-J8a"/>
-                            <constraint firstAttribute="centerY" secondItem="75y-1S-Y1L" secondAttribute="centerY" type="user" id="AOH-QS-o7p"/>
-                            <constraint firstItem="17R-4S-x3o" firstAttribute="leading" secondItem="4MR-EH-PME" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Csq-gN-7ca"/>
-                            <constraint firstAttribute="trailing" secondItem="75y-1S-Y1L" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="WN6-VQ-dBX"/>
-                            <constraint firstItem="75y-1S-Y1L" firstAttribute="leading" secondItem="4MR-EH-PME" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eAs-oI-l2o"/>
-                            <constraint firstItem="75y-1S-Y1L" firstAttribute="top" secondItem="17R-4S-x3o" secondAttribute="bottom" constant="40" type="user" id="top-7s-SBK"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="20-gear2.png" id="uLD-ww-hFt"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aWH-F6-HKa" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lIK-ff-Kyf">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n9F-2r-Srp" id="Tq1-XK-u0j"/>
+                            <outlet property="delegate" destination="n9F-2r-Srp" id="7sF-dT-s12"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Settings" image="20-gear2.png" id="XyG-8C-USK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="alE-Nb-Zrs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="524"/>
+            <point key="canvasLocation" x="663" y="519"/>
         </scene>
     </scenes>
     <resources>
@@ -145,14 +163,20 @@
         <image name="86-camera.png" width="24" height="18"/>
     </resources>
     <classes>
+        <class className="IASKAppSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IASKAppSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="SCRAlbumResultsController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCRAlbumResultsController.h"/>
+        </class>
         <class className="SCRHistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCRHistoryViewController.h"/>
-        </class>
-        <class className="SCRSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCRSettingsViewController.h"/>
         </class>
         <class className="SCRTabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCRTabBarController.h"/>

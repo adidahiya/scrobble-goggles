@@ -8,20 +8,18 @@
 
 #import <MobileCoreServices/UTCoreTypes.h>
 
-#import "SCRGoogleGoggles.h"
-#import "SCRCameraViewController.h"
 #import "SCRCameraViewDelegate.h"
 
 @interface SCRCameraViewDelegate ()
 
 @property SCRGoogleGoggles *goggles;
-@property SCRCameraViewController *resultsController;
+@property SCRAlbumResultsController *resultsController;
 
 @end
 
 @implementation SCRCameraViewDelegate
 
-- (void) initWithResultsViewController:(SCRCameraViewController *)controller
+- (void) initWithResultsViewController:(SCRAlbumResultsController *)controller
 {
     self.resultsController = controller;
     self.goggles = [[SCRGoogleGoggles alloc] init];
@@ -64,11 +62,11 @@
 
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     UIImage *image;
-    
+
     // Handle a still image capture
     if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
         == kCFCompareEqualTo) {
-        
+
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
         // Save the new image to the Camera Roll
         // UIImageWriteToSavedPhotosAlbum (image, nil, nil , nil);

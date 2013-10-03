@@ -1,7 +1,8 @@
 scrobble goggles
 ==============
 
-It's an app that lets you take a photo of an album cover and scrobble it. You know, because 
+It's an app that lets you take a photo of an album cover and scrobble it.
+You know, because you're too hipster to listen to digial music. No, only vinyl will do.
 
 Currently uses a image picker from your photo album, but this can be swapped for
 a camera view by changing one line of code in SCRTabViewController.
@@ -16,7 +17,6 @@ Big thanks to Fadi Hassan for [reverse engineering the Google Goggles API](http:
 - Pull-to-refresh recent scrobbles
 - Better network activity indication
 - Connect to Facebook music, Spotify
-
 - redesign for iOS 7
 
 ### License
